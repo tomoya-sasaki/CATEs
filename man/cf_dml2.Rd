@@ -2,7 +2,7 @@
 % Please edit documentation in R/CATEs_utils.R
 \name{cf_dml2}
 \alias{cf_dml2}
-\title{This function implements the 50:50 cross-fitting}
+\title{This function implements the cross-fitting}
 \usage{
 cf_dml2(est, y, d, x, np, xnew, index, args_tau = list())
 }
@@ -27,5 +27,5 @@ cf_dml2(est, y, d, x, np, xnew, index, args_tau = list())
 Returns J x 4 matrix containing the nuisance parameters
 }
 \description{
-This function implements the 50:50 cross-fitting
+This function implements the cross-fitting
 }
