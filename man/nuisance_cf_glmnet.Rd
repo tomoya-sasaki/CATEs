@@ -3,19 +3,27 @@
 \name{nuisance_cf_glmnet}
 \alias{nuisance_cf_glmnet}
 \title{This function creates the nuisance parameters p(x), mu(x), and mu_d(x)
-via cross-fitting using the \code{\link{glmnet}} package}
+via cross-fitting using the \code{\link[pkg]{glmnet}} package}
 \usage{
-nuisance_cf_glmnet(y, d, x, index, args_p = list(), args_y = list(),
-  args_y0 = list(), args_y1 = list())
+nuisance_cf_glmnet(
+  y,
+  d,
+  x,
+  index,
+  args_p = list(),
+  args_y = list(),
+  args_y0 = list(),
+  args_y1 = list()
+)
 }
 \arguments{
 \item{y}{Vector of outcome values}
 
-\item{d}{Vector of treament indicators}
+\item{d}{Vector of treatment indicators}
 
 \item{x}{Matrix of covariates (N x p matrix)}
 
-\item{index}{List indicating indices for cross-fitting (e.g. obtained by \code{createFolds} of \code{\link{caret}} pkg)}
+\item{index}{List indicating indices for cross-fitting (e.g. obtained by \code{createFolds} of \code{\link[pkg]{caret}} pkg)}
 
 \item{args_p}{List of arguments passed to estimate propensity score model}
 
@@ -27,9 +35,8 @@ nuisance_cf_glmnet(y, d, x, index, args_p = list(), args_y = list(),
 }
 \value{
 Returns n x 4 matrix containing the nuisance parameters
-#'
 }
 \description{
 This function creates the nuisance parameters p(x), mu(x), and mu_d(x)
-via cross-fitting using the \code{\link{glmnet}} package
+via cross-fitting using the \code{\link[pkg]{glmnet}} package
 }

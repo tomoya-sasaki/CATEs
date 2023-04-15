@@ -2,27 +2,26 @@
 % Please edit documentation in R/CATEs_utils.R
 \name{mcm_ea_glmnet}
 \alias{mcm_ea_glmnet}
-\title{Implementation of MCM with efficiency augmentation using the \code{\link{glmnet}} package}
+\title{Implementation of MCM with efficiency augmentation using the \code{\link[pkg]{glmnet}} package}
 \usage{
 mcm_ea_glmnet(y, d, x, np, xnew, args_tau = list())
 }
 \arguments{
 \item{y}{Vector of outcome values}
 
-\item{d}{Vector of treament indicators}
+\item{d}{Vector of treatment indicators}
 
 \item{x}{Matrix of covariates (N x p matrix) for estimation}
 
 \item{np}{Matrix of nuisance parameters obtained by by \code{nuisance_cf_glmnet} or \code{nuisance_cf_grf}}
 
-\item{xnew}{Matrix of covariates (N x p matrix) for out-of-sample prediction}
+\item{xnew}{Matrix of covariates (J x p matrix) for out-of-sample prediction}
 
 \item{args_tau}{List of arguments passed to estimate IATEs}
 }
 \value{
 Returns vector containing the out-of-sample IATEs
-#'
 }
 \description{
-Implementation of MCM with efficiency augmentation using the \code{\link{glmnet}} package
+Implementation of MCM with efficiency augmentation using the \code{\link[pkg]{glmnet}} package
 }

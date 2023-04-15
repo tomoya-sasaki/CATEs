@@ -1,11 +1,11 @@
 # %%
 #' This function creates the nuisance parameters p(x), mu(x), and mu_d(x)
-#' via cross-fitting using the \code{\link{glmnet}} package
+#' via cross-fitting using the \code{\link[pkg]{glmnet}} package
 #'
 #' @param y Vector of outcome values
-#' @param d Vector of treament indicators
+#' @param d Vector of treatment indicators
 #' @param x Matrix of covariates (N x p matrix)
-#' @param index List indicating indices for cross-fitting (e.g. obtained by \code{createFolds} of \code{\link{caret}} pkg)
+#' @param index List indicating indices for cross-fitting (e.g. obtained by \code{createFolds} of \code{\link[pkg]{caret}} pkg)
 #' @param args_p List of arguments passed to estimate propensity score model
 #' @param args_y List of arguments passed to estimate outcome model
 #' @param args_y1 List of arguments passed to estimate outcome model of treated
@@ -58,12 +58,12 @@ nuisance_cf_glmnet <- function(y,d,x,index,
 # %%
 
 #' This function creates the nuisance parameters p(x), mu(x), and mu_d(x)
-#' via cross-fitting using the \code{\link{grf}} package
+#' via cross-fitting using the \code{\link[pkg]{grf}} package
 #'
 #' @param y Vector of outcome values
-#' @param d Vector of treament indicators
+#' @param d Vector of treatment indicators
 #' @param x Matrix of covariates (N x p matrix)
-#' @param index List indicating indices for cross-fitting (e.g. obtained by \code{createFolds} of \code{\link{caret}} pkg)
+#' @param index List indicating indices for cross-fitting (e.g. obtained by \code{createFolds} of \code{\link[pkg]{caret}} pkg)
 #' @param args_p List of arguments passed to estimate propensity score model
 #' @param args_y List of arguments passed to estimate outcome model
 #' @param args_y1 List of arguments passed to estimate outcome model of treated
@@ -117,13 +117,13 @@ nuisance_cf_grf <- function(y,d,x,index,
 
 # %%
 
-#' Implementation of MOM IPW using the \code{\link{glmnet}} package
+#' Implementation of MOM IPW using the \code{\link[pkg]{glmnet}} package
 #'
 #' @param y Vector of outcome values
-#' @param d Vector of treament indicators
+#' @param d Vector of treatment indicators
 #' @param x Matrix of covariates (N x p matrix) for estimation
 #' @param np Matrix of nuisance parameters obtained by by \code{nuisance_cf_glmnet} or \code{nuisance_cf_grf}
-#' @param xnew Matrix of covariates (N x p matrix) for out-of-sample prediction
+#' @param xnew Matrix of covariates (J x p matrix) for out-of-sample prediction
 #' @param args_tau List of arguments passed to estimate IATEs
 #' @import glmnet
 #'
@@ -140,13 +140,13 @@ mom_ipw_glmnet = function(y,d,x,np,xnew,args_tau=list()) {
 
 # %%
 
-#' Implementation of MOM DR using the \code{\link{glmnet}} package
+#' Implementation of MOM DR using the \code{\link[pkg]{glmnet}} package
 #'
 #' @param y Vector of outcome values
-#' @param d Vector of treament indicators
+#' @param d Vector of treatment indicators
 #' @param x Matrix of covariates (N x p matrix) for estimation
 #' @param np Matrix of nuisance parameters obtained by by \code{nuisance_cf_glmnet} or \code{nuisance_cf_grf}
-#' @param xnew Matrix of covariates (N x p matrix) for out-of-sample prediction
+#' @param xnew Matrix of covariates (J x p matrix) for out-of-sample prediction
 #' @param args_tau List of arguments passed to estimate IATEs
 #' @import glmnet
 #'
@@ -163,13 +163,13 @@ mom_dr_glmnet = function(y,d,x,np,xnew,args_tau=list()) {
 
 # %%
 
-#' Implementation of MCM using the \code{\link{glmnet}} package
+#' Implementation of MCM using the \code{\link[pkg]{glmnet}} package
 #'
 #' @param y Vector of outcome values
-#' @param d Vector of treament indicators
+#' @param d Vector of treatment indicators
 #' @param x Matrix of covariates (N x p matrix) for estimation
 #' @param np Matrix of nuisance parameters obtained by by \code{nuisance_cf_glmnet} or \code{nuisance_cf_grf}
-#' @param xnew Matrix of covariates (N x p matrix) for out-of-sample prediction
+#' @param xnew Matrix of covariates (J x p matrix) for out-of-sample prediction
 #' @param args_tau List of arguments passed to estimate IATEs
 #' @import glmnet
 #'
@@ -187,13 +187,13 @@ mcm_glmnet = function(y,d,x,np,xnew,args_tau=list()) {
 
 # %%
 
-#' Implementation of MCM with efficiency augmentation using the \code{\link{glmnet}} package
+#' Implementation of MCM with efficiency augmentation using the \code{\link[pkg]{glmnet}} package
 #'
 #' @param y Vector of outcome values
-#' @param d Vector of treament indicators
+#' @param d Vector of treatment indicators
 #' @param x Matrix of covariates (N x p matrix) for estimation
 #' @param np Matrix of nuisance parameters obtained by by \code{nuisance_cf_glmnet} or \code{nuisance_cf_grf}
-#' @param xnew Matrix of covariates (N x p matrix) for out-of-sample prediction
+#' @param xnew Matrix of covariates (J x p matrix) for out-of-sample prediction
 #' @param args_tau List of arguments passed to estimate IATEs
 #' @import glmnet
 #'
@@ -211,13 +211,13 @@ mcm_ea_glmnet = function(y,d,x,np,xnew,args_tau=list()) {
 
 # %%
 
-#' Implementation of R-learning using the \code{\link{glmnet}} package
+#' Implementation of R-learning using the \code{\link[pkg]{glmnet}} package
 #'
 #' @param y Vector of outcome values
-#' @param d Vector of treament indicators
+#' @param d Vector of treatment indicators
 #' @param x Matrix of covariates (N x p matrix) for estimation
 #' @param np Matrix of nuisance parameters obtained by by \code{nuisance_cf_glmnet} or \code{nuisance_cf_grf}
-#' @param xnew Matrix of covariates (N x p matrix) for out-of-sample prediction
+#' @param xnew Matrix of covariates (J x p matrix) for out-of-sample prediction
 #' @param args_tau List of arguments passed to estimate IATEs
 #' @import glmnet
 #'
@@ -235,13 +235,13 @@ rl_glmnet = function(y,d,x,np,xnew,args_tau=list()) {
 
 # %%
 
-#' Implementation of MOM IPW using the \code{\link{grf}} package
+#' Implementation of MOM IPW using the \code{\link[pkg]{grf}} package
 #'
 #' @param y Vector of outcome values
-#' @param d Vector of treament indicators
+#' @param d Vector of treatment indicators
 #' @param x Matrix of covariates (N x p matrix) for estimation
 #' @param np Matrix of nuisance parameters obtained by by \code{nuisance_cf_glmnet} or \code{nuisance_cf_grf}
-#' @param xnew Matrix of covariates (N x p matrix) for out-of-sample prediction
+#' @param xnew Matrix of covariates (J x p matrix) for out-of-sample prediction
 #' @param args_tau List of arguments passed to estimate IATEs
 #' @import grf
 #'
@@ -258,13 +258,13 @@ mom_ipw_grf = function(y,d,x,np,xnew,args_tau=list()) {
 
 # %%
 
-#' Implementation of MOM DR using the \code{\link{grf}} package
+#' Implementation of MOM DR using the \code{\link[pkg]{grf}} package
 #'
 #' @param y Vector of outcome values
-#' @param d Vector of treament indicators
+#' @param d Vector of treatment indicators
 #' @param x Matrix of covariates (N x p matrix) for estimation
 #' @param np Matrix of nuisance parameters obtained by by \code{nuisance_cf_glmnet} or \code{nuisance_cf_grf}
-#' @param xnew Matrix of covariates (N x p matrix) for out-of-sample prediction
+#' @param xnew Matrix of covariates (J x p matrix) for out-of-sample prediction
 #' @param args_tau List of arguments passed to estimate IATEs
 #' @import grf
 #'
@@ -281,16 +281,16 @@ mom_dr_grf = function(y,d,x,np,xnew,args_tau=list()) {
 
 # %%
 
-#' This function implements the 50:50 cross-fitting
+#' This function implements the cross-fitting
 #'
-#' @param est Vector of outcome values
-#' @param d Vector of treament indicators
+#' @param est Estimation strategy
+#' @param y Vector of outcome values
+#' @param d Vector of treatment indicators
 #' @param x Matrix of covariates (N x p matrix)
-#' @param index List indicating indices for cross-fitting (e.g. obtained by \code{createFolds} of \code{\link{caret}} pkg)
-#' @param args_p List of arguments passed to estimate propensity score model
-#' @param args_y List of arguments passed to estimate outcome model
-#' @param args_y1 List of arguments passed to estimate outcome model of treated
-#' @param args_y0 List of arguments passed to estimate outcome model of non-treated
+#' @param xnew Matrix of covariates (J x p matrix) for out-of-sample prediction
+#' @param np Matrix of nuisance parameters
+#' @param index List indicating indices for cross-fitting (e.g. obtained by \code{createFolds} of \code{\link[pkg]{caret}} pkg)
+#' @param args_tau List of arguments passed to estimate IATEs
 #'
 #' @return Returns n x 4 matrix containing the nuisance parameters
 #'
@@ -315,18 +315,16 @@ cf_dml1 = function(est, y, d, x, np, xnew, index, args_tau=list()) {
 # %%
 
 
-#' This function implements the 50:50 cross-fitting
+#' This function implements the cross-fitting
 #'
-#' @param est Vector of outcome values
-#' @param d Vector of treament indicators
+#' @param est Estimation strategy
+#' @param y Vector of outcome values
+#' @param d Vector of treatment indicators
 #' @param x Matrix of covariates (N x p matrix)
+#' @param np Matrix of nuisance parameters
 #' @param xnew Matrix of covariates (J x P matrix)
-#' @param index List indicating indices for cross-fitting (e.g. obtained by \code{createFolds} of \code{\link{caret}} pkg)
-#' @param args_p List of arguments passed to estimate propensity score model
-#' @param args_y List of arguments passed to estimate outcome model
-#' @param args_y1 List of arguments passed to estimate outcome model of treated
-#' @param args_y0 List of arguments passed to estimate outcome model of non-treated
-#'
+#' @param index List indicating indices for cross-fitting (e.g. obtained by \code{createFolds} of \code{\link[pkg]{caret}} pkg)
+#' @param args_tau List of arguments passed to estimate IATEs#'
 #' @return Returns J x 4 matrix containing the nuisance parameters
 #'
 #' @export
