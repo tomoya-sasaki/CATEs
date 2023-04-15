@@ -1,6 +1,6 @@
 # CATEs
 
-```
+```R
 devtools::install_github(repo="tomoya-sasaki/CATEs")
 ```
 
