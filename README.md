@@ -7,7 +7,7 @@ We have no permission to share the data used in the study. Therefore, the follow
 ```R
 # Download current version from Github
 library(devtools)
-install_github(repo="MCKnaus/CATEs")
+install_github(repo="tomoya-sasaki/CATEs")
 library(CATEs)
 
 # Generate training sample

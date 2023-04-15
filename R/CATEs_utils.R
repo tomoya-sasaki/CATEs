@@ -313,3 +313,38 @@ cf_dml1 = function(est, y, d, x, np, xnew, index, args_tau=list()) {
 }
 
 # %%
+
+
+#' This function implements the 50:50 cross-fitting
+#'
+#' @param est Vector of outcome values
+#' @param d Vector of treament indicators
+#' @param x Matrix of covariates (N x p matrix)
+#' @param xnew Matrix of covariates (J x P matrix)
+#' @param index List indicating indices for cross-fitting (e.g. obtained by \code{createFolds} of \code{\link{caret}} pkg)
+#' @param args_p List of arguments passed to estimate propensity score model
+#' @param args_y List of arguments passed to estimate outcome model
+#' @param args_y1 List of arguments passed to estimate outcome model of treated
+#' @param args_y0 List of arguments passed to estimate outcome model of non-treated
+#'
+#' @return Returns J x 4 matrix containing the nuisance parameters
+#'
+#' @export
+
+cf_dml2 = function(est, y, d, x, np, xnew, index, args_tau=list()) {
+
+  iate = matrix(0, nrow(xnew), 1)
+
+  for (i in 1:length(index)) {
+    iate = iate + 1/length(index) *
+                  do.call(est,  list(y[index[[i]]],
+                          d[index[[i]]],
+                          x[index[[i]],,drop=F],
+                          np[index[[i]],],
+                          xnew,
+                          args_tau=args_tau))
+  }
+  return(iate)
+}
+
+# %%
