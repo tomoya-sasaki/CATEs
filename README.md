@@ -1,7 +1,7 @@
 # CATEs
 
 ```R
-devtools::install_github(repo="tomoya-sasaki/CATEs")
+remotes::install_github(repo="tomoya-sasaki/CATEs")
 ```
 
 * This package is forked from `MCKnaus/CATEs`. Built upon the original package, this package is intended to serve applied researchers who wish to apply the models implemented by the original authors. 
