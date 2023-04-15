@@ -1,4 +1,17 @@
 # CATEs
+
+```
+devtools::install_github(repo="tomoya-sasaki/CATEs")
+```
+
+* This package is forked from `MCKnaus/CATEs`. Built upon the original package, this package is intended to serve applied researchers who wish to apply the models implemented by the original authors. 
+* The main differences are:
+	* `IATEs` can take the new test data that has different numbers of rows from the original training data
+	* `IATEs` do not implement "infeasible" models because, in practice, we do not know the true data generating process. 
+	* Fixed some minor bugs (e.g., unspecifed `n` in some functions)
+* The following is the original readme
+
+# CATEs
 Implementation of all estimators that are applied in the Empirical Monte Carlo Study of [Knaus](https://mcknaus.github.io/), [Lechner](https://www.michael-lechner.eu/) and [Strittmatter](http://www.anthonystrittmatter.com/home) (2018). They are based on the packages [grf](https://github.com/grf-labs/grf) and [glmnet](https://github.com/cran/glmnet).
 
 ## Example
@@ -7,7 +20,7 @@ We have no permission to share the data used in the study. Therefore, the follow
 ```R
 # Download current version from Github
 library(devtools)
-install_github(repo="tomoya-sasaki/CATEs")
+install_github(repo="MCKnaus/CATEs")
 library(CATEs)
 
 # Generate training sample
